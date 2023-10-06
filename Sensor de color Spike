@@ -1,0 +1,20 @@
+Para empezar el sensor de color LEGO Spike tiene 3 modos principales:
+color, luz reflejada y luz ambiental.
+Color: en este modo el sensor detecta 8 colores diferentes, cada color que detecta el sensor de LEGO está representado por un valor
+
+La distancia adecuada para que detecte un objeto varia según la forma y el color de ese objeto, pero normalmente la distancia es entre 15 y 20 milimetros,la cantidad de colores
+y la intensidad de la luz se mide como porcentaje del 0 al 100. Siendo 0 el mas oscuro y 100 el más brillante.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
