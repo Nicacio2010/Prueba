@@ -1,19 +1,322 @@
-Para programar con el sensor de color en Python podemos utilizar el modulo color_sensor el cuál permite escribir un codigo que reacciona a colores especificos
-o a la intensidad de luz reflejada.
+Para poder utilizar el Sensor de color debemos inicializarlo:
+
+from spike import ColorSensor
+
+# Inicializa el Sensor de color
+color = ColorSensor('E')
+
+Luego tenemos todas las funciones vinculadas al Sensor de color las cuales son:
+.get_color()
+.get_ambient_light()
+.get_reflected_light()
+.get_rgb_intensity()
+.get_red()
+.get_green()
+.get_blue()
+
+get_color() :
+Esta funcion obtiene el color detectado a una superficie. Esta funcion indica:
+
+Nombre del color.
+Tipo
+:
+cadena (texto)
+Valores
+:
+'black','violet','blue','cyan','green','yellow','red','white',None
+
+Errores posibles en la función get_color():
+RuntimeError
+The sensor has been disconnected from the Port.
+
+Por ejemplo:
+from spike import ColorSensor
 
 
+# Inicializa el Sensor de color
+
+paper_scanner = ColorSensor('E')
 
 
+# Mide el color
+
+color = paper_scanner.get_color()
 
 
+# Traslada el nombre del color a la consola
+
+print('Detected:', color)
 
 
+# Comprueba si se trata de un color específico
+
+if color == 'red':
+    print('It is red!')
+
+get_ambient_light():
+ Obtiene la intensidadde la luz ambiental.
+Esto hace que el Sensor de color cambie de modo, lo que puede afectar su 
+programa de maneras inesperadas. Por ejemplo, cuando el Sensor de color
+está en modo luz ambiente no puede detectar colores.
+
+Esta función indica:
+
+La intensidad de luz ambiente.
+Tipo
+:
+entero (número entero positivo o negativo, incluyendo 0)
+Valores
+:
+0 a 100 %
+
+El error que puede tener esta funcion al igual que "get_color" es:
+
+RuntimeError
+The sensor has been disconnected from the Port.
+
+get_reflected_light() :
+ Obtiene la cantidad de luz reflejada
+Indica:
+
+La intensidad de luz reflejada.
+Tipo
+:
+entero (número entero positivo o negativo, incluyendo 0)
+Valores
+:
+0 a 100 %
+Errores:
+RuntimeError 
+The sensor has been diconnected from the Port.
+
+get_rgb_intensity() :
+Obtiene la intensidad de color rojo, verde, azul y la intensidad
+global.
+
+Dicha función indica:
+
+Tipo
+:
+tupla de int
+Valores
+:
+Red, green, blue, and overall intensity (0-1024)
+
+El error que puede tener esta función es:
+RuntimeError
+The sensor has been disconnected from the Port.
+
+get_red()
+Obtiene la intensidad del color rojo.
+
+Indica:
+
+Tipo
+:
+entero (número entero positivo o negativo, incluyendo 0)
+Valores
+:
+0 a 1024
+
+Errores posibles en get_red()
+RuntimeError
+The sensor has been disconnected from the Port.
+
+get_green()
+Obtiene la intensidad del color verde.
+
+Indica:
+
+Tipo
+:
+entero (número entero positivo o negativo, incluyendo 0)
+Valores
+:
+0 a 1024
+
+Errores posibles en get_green():
+RuntimeError
+The sensor has been disconected from the port.
+
+get_blue()
+
+Obtiene la intensidad del color azul:
+
+Indica 
+
+Tipo
+:
+entero (número entero positivo o negativo, incluyendo 0)
+Valores
+:
+0 a 1024
+
+Errores posibles en get_blue():
+RuntimeError
+The sensor has been disconnected from the Port.
+El sensor ha sido desconectado del puerto.
+
+En el tema de programación tenemos "Eventos" del Sensor de color los cuales son:
+.wait_until_color()
+.wait_for_new_color()
+
+El Evento llamado wait_until_color(color) realiza lo siguiente:
+Espera hasta que el Sensor de color detecta el color especificado.
+
+Parámetros:
+
+color
+El nombre del color
+Tipo
+:
+cadena (texto)
+Valores
+:
+'negro','violeta','azul','cian','verde','amarillo','rojo',blanco,Ninguno
+
+Valor predeterminado    : sin valor
+                          predeterminado
+
+Errores en wait_until_color(color):
+
+TypeError
+color is not a string or None.
+
+ValueError
+color is not one of the allowed values.
+
+RuntimeError
+The sensor has been disconnected from the Port.
+
+Por ejemplo:
+
+from spike import ColorSensor
+
+color_sensor = ColorSensor('A')
+
+color_sensor.wait_until_color('blue')
+
+# Añadir acciones a continuación
+
+wait_for_new_color() :
+
+Espera hasta que el Sensor de color detecta un nuevo color.
+La primera vez que se emplea este método, obtiene inmediatamente el color detectado.
+A continuación, espera hasta que el Sensor de color detecte un color diferente del anteriormete
+detectado la última vez que se utilizó este método.
+ Este Evento indica:
+El nombre del nuevo color
+Tipo
+:
+cadena (texto)
+Valores
+:
+'black','violet','blue','cyan','green','yellow','red','white',None
+
+Posibles errores en dicho Evento:
+ RuntimeError
+The sensor has been diconnected from the Port.
+
+Por ejemplo:
+
+from spike import ColorSensor
+
+color_sensor = ColorSensor('A')
+
+while True:
+    color = color_sensor.wait_for_new_color()
+    if color == 'black':
+        # For example, steer 
+left
+    elif color == 'white':
+        # For example, steer 
+right
+
+Finalmente en lo que es programación del Sensor de color LEGO Spike están las "Acciones".
+Estas son:
+.light_up_all()
+.light_up()
+Lo que realiza light_up_all(brightness=100) es:
+Iluminar todas las luces del Sensor de color con un brillo especificado.
+
+Esto hace que el Sensor de color cambie de modo, lo que puede afectar a tu programa
+de formas inesperadas. Por ejemplo, cuando el Sensor de color está en modo de iluminación
+no puede detectar colores.
+
+Parámetros en esta Acción:
+
+brightness (brillo)
+El brillo deseado de las luces en el Sensor de color.
+Tipo: entero (número entero positivo o negativo, incluyendo 0)
+Valores: 0 a 100 % (0 es apagado y 100 es brillo completo)
+Valor predeterminado: 100 %
+
+Error en esta Acción:
+TypeError 
+brightness is not an integer
+El brillo no es un numero entero
+RuntimeError
+The sensor has been disconnected from the Port.
+
+Ejemplo:
+
+from spike import ColorSensor
+
+color_sensor = ColorSensor('A')
 
 
+# Enciende las luces del Sensor de color
+
+color_sensor.light_up_all()
 
 
+# Apaga las luces del Sensor de color
+
+color_sensor.light_up_all(0)
+
+light_up(light_1, light_2, light_)
+
+Establece el brillo de las luces individuales en el Sensor de color.
+
+Esto hace que el Sensor de color cambie de modo, lo que puede afectar a tu programa
+de formas inesperadas. Por ejemplo, cuando el Sensor de color está en modo de iluminación
+no puede detectar colores.
+
+Ésta acción tiene distintos parámetros los cuáles son:
+
+light_1
+El brillo deseado de la luz 1.
+Tipo: entero (número entero positivo o negativo, incluyendo 0)
+Valores: 0 a 100 % (0 es apagado y 100 es brillo completo)
+Valor predeterminado: 100 %
+
+light_2
+El brillo deseado de la luz 2.
+Tipo: entero (número entero positivo o negativo, incluyendo 0)
+Valores: 0 a 100 % (0 es apagado y 100 es brillo completo)
+Valor predeterminado: 100 %
+
+light_3
+El brillo deseado de la luz 3.
+Tipo: entero (número entero positivo o negativo, incluyendo 0)
+Valores: 0 a 100 % (0 es apagado y 100 es brillo completo)
+Valor predeterminado: 100 %
+
+Posibles Errores en ésta acción:
+
+TypeError
+light_1, light_2, or light_3 is not an integer.
+
+RuntimeError
+The sensor has been disconnected from the Port.
+
+Por ejemplo:
+
+from spike import ColorSensor
+
+color_sensor = ColorSensor('A')
 
 
+# Enciende una luz (light_2) en el Sensor de color con el máximo brillo
 
-
-
+color_sensor.light_up(0, 100, 0)
