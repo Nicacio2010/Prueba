@@ -1,4 +1,4 @@
-Para poder utilizar el Sensor de color debemos inicializarlo:
+Para empezar a programar el Sensor de color LEGO Spike en Python debemos inicializarlo:
 
 from spike import ColorSensor
 
@@ -322,4 +322,4 @@ color_sensor = ColorSensor('A')
 color_sensor.light_up(0, 100, 0)
 
 
-Bueno gente esto fue todo lo de Programación en Python para el Sensor de color LEGO Spike, espero que les sirva.
+Bueno para esta información yo busque informacion en la pagina de LEGO esto fue todo lo de Programación en Python para el Sensor de color LEGO Spike, espero que les sirva.
