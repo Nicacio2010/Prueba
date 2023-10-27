@@ -4,7 +4,14 @@ Frecuencia de muestreo del sensor: 100 Hz
 Distancia de lectura óptima: 16 mm (dependiendo del tamaño, color y superficie del objeto)
 Tres LED controlados individualmente (solo Python)
 
-https://raw.githubusercontent.com/Nicacio2010/Prueba/main/docs/Imagen%20del%20Sensor%20de%20color%20Spike.jpg
+  <img
+    height="90"
+    width="90"
+    alt="react + ts logo"
+    src="https://raw.githubusercontent.com/Nicacio2010/Prueba/main/docs/Imagen%20del%20Sensor%20de%20color%20Spike.jpg"
+    align="left"
+  />
+
 
 Ademas este sensor de color LEGO tiene 3 modos principales:
 Color: 
@@ -30,9 +37,6 @@ de la luz, se mide como porcentaje del 0 al 100. Siendo 0 el mas oscuro y 100 el
 Intensidad de luz ambiental (solo Python): en este modo, el sensor de color mide la cantidad de luz en su entorno, sin producir su propia fuente de luz. La intensidad
 de luz ambiental, se mide como un porcentaje del 0 al 100. Siendo 0 muy oscuro y 100 muy brillante.
 Esto significa que su robot puede estar programado para emitir una alarma al salir el sol por la mañana o para detenerse si las luces se apagan.
-
-
-
 
 
 
