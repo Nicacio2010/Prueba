@@ -7,9 +7,8 @@ Tres LED controlados individualmente (solo Python)
   <img
     height="90"
     width="90"
-    alt="react + ts logo"
-    src="https://raw.githubusercontent.com/Nicacio2010/Prueba/main/docs/Imagen%20del%20Sensor%20de%20color%20Spike.jpg"
-    align="left"
+src="https://raw.githubusercontent.com/Nicacio2010/Prueba/main/docs/Imagen%20del%20Sensor%20de%20color%20Spike.jpg"
+    align="center"
   />
 
 Ademas este sensor de color LEGO tiene 3 modos principales:
