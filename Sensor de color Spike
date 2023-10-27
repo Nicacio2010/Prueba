@@ -4,7 +4,7 @@ Frecuencia de muestreo del sensor: 100 Hz
 Distancia de lectura óptima: 16 mm (dependiendo del tamaño, color y superficie del objeto)
 Tres LED controlados individualmente (solo Python)
 
-https://github.com/Nicacio2010/Prueba/blob/main/docs/Imagen%20del%20Sensor%20de%20color%20Spike.jpg
+https://raw.githubusercontent.com/Nicacio2010/Prueba/main/docs/Imagen%20del%20Sensor%20de%20color%20Spike.jpg
 
 Ademas este sensor de color LEGO tiene 3 modos principales:
 Color: 
